@@ -4,9 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthorController;
-use App\Models\Author;
-use App\Models\Book;
-use App\Models\Genre;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------

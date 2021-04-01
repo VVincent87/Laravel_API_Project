@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
@@ -37,10 +36,10 @@ class Book extends Model
     public static function updateBook($book, $data)
     {
         $book->title = $data['title'];
-        $book->description = $data['description'];
         $book->author_id = $data['author_id'];
-        $book->publication_year = $data['publication_year'];
+        $book->description = $data['description'];
         $book->pages_nb = $data['pages_nb'];
+        $book->publication_year = $data['publication_year'];
         $book->save();
 
         return $book;
