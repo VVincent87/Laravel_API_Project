@@ -35,12 +35,18 @@ class GenreController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Genre $genre
-     * @return \Illuminate\Http\JsonResponse
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function show(Genre $genre)
+    public function show($id)
     {
-        return new GenreResource($genre);
+        $genre =  Genre::find($id);
+        if ($genre){
+            return new GenreResource($genre);
+        }
+        else{
+            return response()->json(['message' => 'Genre does not exist'], 404);
+        }
     }
 
     /**

@@ -35,12 +35,18 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Author $author
-     * @return \Illuminate\Http\JsonResponse
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function show(Author $author)
+    public function show($id)
     {
-        return new AuthorResource($author);
+        $author =  Author::find($id);
+        if ($author){
+            return new AuthorResource($author);
+        }
+        else{
+            return response()->json(['message' => 'Author does not exist'], 404);
+        }
     }
 
     /**

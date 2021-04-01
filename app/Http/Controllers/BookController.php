@@ -43,13 +43,18 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Book $book               
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)   
+    public function show($id)
     {
-        return new BookResource($book);
-        //return response ()->json($book, 200);
+        $book =  Book::find($id);
+        if ($book){
+            return new BookResource($book);
+        }
+        else{
+            return response()->json(['message' => 'Book does not exist!'], 404);
+        }
     }
 
     
