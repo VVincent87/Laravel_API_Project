@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthorController;
 use App\Models\Author;
+use App\Models\Book;
+use App\Models\Genre;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,9 @@ use App\Models\Author;
 */
 
 Route::resource('authors', AuthorController::class);
+Route::resource('books', BookController::class);
+Route::resource('genres', GenreController::class);
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
